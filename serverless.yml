@@ -1,0 +1,21 @@
+service: aws-hello-api
+
+provider:
+  name: aws
+  architecture: x86_64
+  runtime: nodejs20.x
+  region: ap-south-1
+
+functions:
+  hellofuntion:
+    handler: hello.handler
+    events:
+      - httpApi:
+          path: /hello
+          method: get
+  byefuntion:
+    handler: bye.handler
+    events:
+      - httpApi:
+          path: /bye
+          method: get
